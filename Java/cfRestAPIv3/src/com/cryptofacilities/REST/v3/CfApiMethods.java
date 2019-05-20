@@ -299,6 +299,14 @@ public class CfApiMethods {
 		String endpoint = "/api/v3/openpositions";
 		return makeRequest("GET", endpoint);
 	}
+	
+	// Returns recent order events
+	public String getRecentOrders(String symbol) throws KeyManagementException, InvalidKeyException, MalformedURLException,
+			NoSuchAlgorithmException, IOException {
+		String endpoint = "/api/v3/recentorders";
+		String postUrl = symbol != null ? "symbol=" + symbol : "";
+		return makeRequest("GET", endpoint, postUrl, "");
+	}
 
 	// Sends an xbt witdrawal request
 	public String sendWithdrawal(String targetAddress, String currency, BigDecimal amount) throws KeyManagementException,

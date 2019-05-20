@@ -62,12 +62,12 @@ public class APITester {
 		System.out.println("getTickers:\n" + result);
 
 		//get orderbook
-		symbol = "FI_XBTUSD_180316";
+		symbol = "PI_XBTUSD";
 		result = methods.getOrderBook(symbol);
 		System.out.println("getOrderBook:\n" + result);
 
 		//get history
-		symbol = "FI_XBTUSD_180316";
+		symbol = "PI_XBTUSD";
 		calendar.set(2016, 1, 20,0,0,0);
 		result = methods.getHistory(symbol, calendar.getTime());
 		System.out.println("getHistory:\n" + result);
@@ -81,7 +81,7 @@ public class APITester {
 
 		//send limit order
 		orderType = "lmt";
-		symbol = "FI_XBTUSD_180316";
+		symbol = "PI_XBTUSD";
 		side = "buy";
 		size = BigDecimal.ONE;
 		limitPrice = BigDecimal.ONE;
@@ -90,7 +90,7 @@ public class APITester {
 
 		//send stop order
 		orderType = "stp";
-		symbol = "FI_XBTUSD_180316";
+		symbol = "PI_XBTUSD";
 		side = "buy";
 		size = BigDecimal.ONE;
 		limitPrice = new BigDecimal(1.1);
@@ -110,7 +110,7 @@ public class APITester {
 				+ "\"order\": \"send\","
 				+ "\"order_tag\": \"1\","
 				+ "\"orderType\": \"lmt\","
-				+ "\"symbol\": \"FI_XBTUSD_180316\","
+				+ "\"symbol\": \"PI_XBTUSD\","
 				+ "\"side\": \"buy\","
 				+ "\"size\": 1,"
 				+ "\"limitPrice\": 1.00,"
@@ -118,7 +118,7 @@ public class APITester {
 				+ "\"order\": \"send\","
 				+ "\"order_tag\": \"2\","
 				+ "\"orderType\": \"stp\","
-				+ "\"symbol\": \"FI_XBTUSD_180316\","
+				+ "\"symbol\": \"PI_XBTUSD\","
 				+ "\"side\": \"buy\","
 				+ "\"size\": 1,"
 				+ "\"limitPrice\": 2.00,"
@@ -147,6 +147,11 @@ public class APITester {
 		//get open positions
 		result = methods.getOpenPositions();
 		System.out.println("getOpenPositions:\n" + result);
+
+        //get recent order
+        symbol = "PI_XBTUSD";
+        result = methods.getRecentOrders(symbol);
+        System.out.println("getRecentOrders:\n" + result);
 
 		//send xbt withdrawal request
 		String targetAddress = "xxxxxxxxxxxxx";
