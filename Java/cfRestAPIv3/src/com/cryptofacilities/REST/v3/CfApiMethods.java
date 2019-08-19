@@ -41,7 +41,9 @@ import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
+import java.util.Map;
 import java.util.TimeZone;
+import java.util.stream.Collectors;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -254,6 +256,18 @@ public class CfApiMethods {
 
 		return makeRequest("POST", endpoint, "", postBody);
 	}
+
+    // Places an order
+    public String editOrder(Map<String, String> params) throws KeyManagementException, InvalidKeyException,
+            NoSuchAlgorithmException, IOException {
+        String endpoint = "/api/v3/editorder";
+        String postBody =
+                params.entrySet().stream()
+                        .map(e -> e.getKey() + "=" + e.getValue())
+                        .collect(Collectors.joining("&"));
+
+        return makeRequest("POST", endpoint, "", postBody);
+    }
 
 	// Cancels an order
 	public String cancelOrder(String orderId) throws KeyManagementException, InvalidKeyException, MalformedURLException,

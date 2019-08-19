@@ -30,6 +30,7 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 import java.util.TimeZone;
 
 import com.cryptofacilities.REST.v3.CfApiMethods;
@@ -97,6 +98,18 @@ public class APITester {
 		stopPrice = new BigDecimal(2.0);
 		result = methods.sendOrder(orderType, symbol, side, size, limitPrice, stopPrice);
 		System.out.println("sendOrder (stop):\n" + result);
+
+		//edit order
+        result =
+                methods.editOrder(
+                        Map.of(
+                                "orderId",
+                                "ccdf6310-9a0d-4173-9efe-2ee5696830e1",
+                                "size",
+                                "1",
+                                "limitPrice",
+                                "1.00"));
+        System.out.println("editOrder(): \n" + result);
 
 		//cancel order
 		String orderId = "ccdf6310-9a0d-4173-9efe-2ee5696830e1";
