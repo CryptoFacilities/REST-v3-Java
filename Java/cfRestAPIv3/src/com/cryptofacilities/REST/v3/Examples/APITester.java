@@ -161,11 +161,6 @@ public class APITester {
 		result = methods.getOpenPositions();
 		System.out.println("getOpenPositions:\n" + result);
 
-        //get recent order
-        symbol = "PI_XBTUSD";
-        result = methods.getRecentOrders(symbol);
-        System.out.println("getRecentOrders:\n" + result);
-
 		//send xbt withdrawal request
 		String targetAddress = "xxxxxxxxxxxxx";
 		String currency = "xbt";
