@@ -187,7 +187,7 @@ public class CfApiMethods {
 	// Returns instruments
 	public String getInstruments() throws KeyManagementException, InvalidKeyException, MalformedURLException,
 			NoSuchAlgorithmException, IOException {
-		String endpoint = "/api/v3/accounts";
+		String endpoint = "/api/v3/instruments";
 		return makeRequest("GET", endpoint);
 	}
 	
